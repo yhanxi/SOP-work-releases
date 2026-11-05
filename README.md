@@ -1,21 +1,43 @@
 # SOP 工作台 · 软件发布
 
-本仓库仅提供通用软件安装包、免安装版和签名更新文件。源码仓库保持私有；发布内容不包含用户 SOP、现场照片、项目缓存或更新签名私钥。
+SOP 工作台的 Windows 安装包、免安装版和签名更新文件。
 
-[下载最新版本](https://github.com/yhanxi/SOP-work-releases/releases/latest)
+- [源码与开发说明](https://github.com/yhanxi/SOP-work)
+- [完整版本列表](https://github.com/yhanxi/SOP-work-releases/releases)
+- [最新更新](https://github.com/yhanxi/SOP-work-releases/releases/latest)
 
-Windows x64：下载 `SOPStudio-Setup-VERSION-x64.exe` 安装，或下载 ZIP 解压后运行 `SOPStudio/SOPStudio.exe`。
+## 首次安装
+
+在版本列表中选择含完整安装包的版本。
+
+| 文件 | 使用方式 |
+| --- | --- |
+| SOPStudio-Setup-VERSION-x64.exe | Windows 64 位安装程序，双击安装 |
+| SOPStudio-VERSION-x64.zip | 免安装版，解压后运行 SOPStudio/SOPStudio.exe |
+| SOPStudio-VERSION-app.asar | 软件内更新文件，由工作台下载并安装 |
+| latest.json、SOP-update.json | 软件读取的签名更新清单 |
+| SHA256-VERSION.json | 附件大小及 SHA256 校验值 |
+
+完整安装包和日常小更新可能分别发布。若最新版本仅有 ASAR，请先安装带 EXE 或完整 ZIP 的版本，再通过软件内更新升级。ASAR 无法直接安装或运行。
 
 ## 软件内更新
 
-0.4.1 起默认从此公开仓库检查和下载更新，无需 GitHub 登录。启动后自动检查，每 6 小时复查，可关闭；左下角“软件更新”或帮助菜单可手动检查。
+在左下角「软件更新」或菜单「帮助 → 检查软件更新」中检查版本。可启用或关闭自动检查，发现更新后手动下载并重启安装。
 
-日常兼容更新只下载约 444 KB 的程序文件。下载后验证发布者 Ed25519 签名、SHA256 和版本；保存并退出后替换程序，保留旧版备份和本机项目恢复缓存。升级 Electron 运行环境时使用完整安装程序。
+日常兼容更新通常只下载几百 KB 的程序文件。更换 Electron 运行环境时，需使用完整安装程序。重启前请保存正在编辑的项目。
 
-如果 GitHub 下载慢，可在“软件更新 → 下载源设置”配置自有 HTTPS 备用下载目录。目录需提供 Release 中的 `latest.json` 和相应 `SOPStudio-VERSION-app.asar`；所有来源仍验证签名。未预置第三方公共代理。
+下载后，软件验证发布者 Ed25519 签名、SHA256、大小及版本。Windows 安装 EXE 的代码签名与此不同，目前安装包未配置 Windows 代码签名证书。
 
-## 校验与使用
+## 备用下载地址
 
-每次发布附带 `SHA256-VERSION.json`。安装包未作 Windows 代码签名，程序更新使用单独的签名校验。ASAR 和更新清单供软件自动使用，普通用户请选择 EXE 或 ZIP。
+GitHub 访问缓慢时，可在「软件更新 → 下载源设置」填写自己可访问的 HTTPS 下载目录。目录需提供同一版本的 latest.json 和 SOPStudio-VERSION-app.asar。所有下载源均通过内置公钥校验，不预置公共第三方代理。
 
-SOP 可离线编写。文件、图片、标注、页序和固定沿用内容保存于本机项目；Word 中各元素可独立编辑。更新不上传项目数据。
+## 模板与数据
+
+发布包使用通用空白模板，公司名称、公司 Logo、编制、审核和批准等信息默认留空，使用者可自行填写。
+
+项目保存在使用者选择的 .sop.json 文件中，自动恢复缓存另存在本机。软件更新功能只查询版本和下载程序，SOP 内容、现场照片和项目文件由使用者管理。分享项目文件时，文件内的公司信息与照片也会随之分享。
+
+## 许可证
+
+SOP 工作台项目代码采用 [MIT License](LICENSE)，源码见 [SOP-work](https://github.com/yhanxi/SOP-work)。依赖组件沿用各自的许可证，完整软件包内包含相应声明。
