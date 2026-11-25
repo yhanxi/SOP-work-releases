@@ -8,7 +8,12 @@ SOP 工作台的 Windows 安装包、免安装版和签名更新文件。
 
 ## 首次安装
 
-在版本列表中选择含完整安装包的版本。
+目前提供 **0.4.40 Windows x64 完整版**，新用户可直接下载安装。
+
+- [EXE 安装包](https://github.com/yhanxi/SOP-work-releases/releases/download/v0.4.40/SOPStudio-Setup-0.4.40-x64.exe)
+- [ZIP 免安装包](https://github.com/yhanxi/SOP-work-releases/releases/download/v0.4.40/SOPStudio-0.4.40-x64.zip)
+- [0.4.40 发布说明](https://github.com/yhanxi/SOP-work-releases/releases/tag/v0.4.40)
+- [完整包 SHA256 校验文件](https://github.com/yhanxi/SOP-work-releases/releases/download/v0.4.40/SHA256-Installer-0.4.40.json)
 
 | 文件 | 使用方式 |
 | --- | --- |
